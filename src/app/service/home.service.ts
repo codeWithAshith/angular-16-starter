@@ -12,8 +12,6 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   getAllBooks(): void {
-    console.log('called');
-
     this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/book/all`).subscribe({
       next: (response) => {
         console.log(response.data);

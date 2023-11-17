@@ -22,13 +22,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     const authdata = this.authService.userSubject.value;
     const isApiUrl = !request.url.startsWith(urlEndpoint.baseUrl + '/auth');
 
-    console.log(authdata);
-    console.log(isApiUrl);
-    
-
     if (authdata !== null && isApiUrl) {
-      console.log("auth");
-      
       request = request.clone({
         setHeaders: {
           Authorization: `Basic ${authdata}`,
